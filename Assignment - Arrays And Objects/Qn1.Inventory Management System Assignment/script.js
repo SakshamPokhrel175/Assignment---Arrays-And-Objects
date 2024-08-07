@@ -1,3 +1,10 @@
+//Version:1
+console.log("\n\n\n\n\nVERSION:2");
+
+( function(){
+
+
+
 //1. Define the Item Class
 class Item {
     constructor(id, name, quantity, price) {
@@ -63,23 +70,81 @@ let inventory = [
     new Item(1, 'Apple', 10, 0.5),
     new Item(2, 'Banana', 20, 0.2)
 ];
+console.log("Initial Inventory:");
 printInventory(inventory); 
 
 
 // Adding an item
 addItem(inventory, new Item(3, 'Orange', 15, 0.7));
+console.log("\nAdding item:");
 printInventory(inventory); // After Adding
 
 
 // Updating an item
 updateItem(inventory, 2, { quantity: 30 });
+console.log("\nUpdating Inventory:");
 printInventory(inventory); // After Updating
 
 
 // Deleting an item
 deleteItem(inventory, 2);
+console.log("\nDeleting item:");
 printInventory(inventory); // After Deleting
 
 
 // Get item by ID
 console.log(getItem(inventory, 1)); // Returns item with ID 1
+
+})(); //calling function
+
+
+console.log("\n\n\n\n\nVERSION:2");
+
+
+
+//Version : 2
+( function(){
+
+
+// Initial Inventory
+let inventory = [
+    { id: 1, name: 'Apple', quantity: 10, price: 0.5 },
+    { id: 2, name: 'Banana', quantity: 20, price: 0.2 }
+  ];
+console.log("\nInitial Inventory:" , inventory);
+
+
+
+//Adding item:
+
+let addItem=function(id, name , quantity , price){
+    let newItem = { id, name, quantity, price };
+    inventory.push(newItem);
+}
+addItem(3, 'Orange', 15, 0.7);
+console.log("\nAdding item:", inventory);
+
+
+//Updating item:
+let updateItem= function(id , updateDetails){
+    let item = inventory.find(item=>item.id===id);
+    if(item){
+        Object.assign(id , updateDetails);
+    }
+}
+updateItem(2, { quantity: 30 });
+console.log("\nUpdating Inventory:", inventory);
+
+
+
+//Deleting item:
+let deleteItem = function(id){
+    inventory = inventory.filter(item=>item.id!==id);
+}
+deleteItem(2);
+console.log("\nDeleting item:", inventory);
+
+
+
+
+})();
